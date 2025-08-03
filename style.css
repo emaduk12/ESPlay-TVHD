@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1c1c1c, #101010);
+  color: #f0f0f0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #121212;
+  padding: 1rem;
+  text-align: center;
+  color: #00ffaa;
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 1px solid #00ffaa;
+}
+
+header input,
+header button {
+  margin: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+#codeSubmit {
+  background: #00ffaa;
+  color: #000;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+aside#sidebar {
+  width: 300px;
+  background: #1b1b1b;
+  padding: 1rem;
+  overflow-y: auto;
+  border-right: 1px solid #333;
+}
+
+aside input[type="file"],
+aside input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding: 0.5rem;
+  background: #2a2a2a;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+li:hover {
+  background: #3a3a3a;
+}
+
+.star {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.star.active {
+  color: #ffd700;
+}
+
+#playerSection {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #121212;
+}
+
+#nowPlaying {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+video {
+  width: 100%;
+  max-width: 1000px;
+  border: 4px solid #00ffaa;
+  border-radius: 10px;
+  background: black;
+  aspect-ratio: 16 / 9;
+}
+
+/* View toggle buttons */
+#viewButtons {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+#viewButtons button {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #2a2a2a;
+  color: #f0f0f0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#viewButtons button.active,
+#viewButtons button:hover {
+  background: #00ffaa;
+  color: #000;
+}
+
+/* Clear channels button */
+#clearChannelsBtn {
+  background: #ff5500;
+}
+
+/* Draggable list styling */
+li[draggable="true"] {
+  cursor: grab;
+}
+
+li[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* Channel left section inside li */
+li div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+li img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+/* Status Legend Footer */
+#statusLegend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: #1b1b1b;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  border-top: 1px solid #333;
+}
+
+#statusLegend .dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.dot.green { background-color: #00ffaa; }
+.dot.red { background-color: #ff0040; }
+.dot.blue { background-color: #00aaff; }
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  header {
+    font-size: 1.5rem;
+  }
+
+  aside#sidebar {
+    width: 250px;
+  }
+
+  video {
+    max-width: 100%;
+  }
+
+  #nowPlaying {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  aside#sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #333;
+  }
+
+  #playerSection {
+    padding: 0.5rem;
+  }
+
+  video {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #nowPlaying {
+    font-size: 1rem;
+  }
+
+  header input,
+  header button {
+    width: 90%;
+    margin: 0.3rem auto;
+    display: block;
+    font-size: 1rem;
+  }
+}

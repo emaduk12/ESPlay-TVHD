@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESPlay TV</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>ESPlay TV</h1>
+    <div>
+      <input type="text" id="accessCode" placeholder="کودێ خوە داخل بکە" />
+      <button id="codeSubmit">چوونا ژوور</button>
+    </div>
+    <div id="sessionTimer" style="margin-top: 0.5rem; font-size: 0.9rem; color: #ccc;"></div>
+  </header>
+
+  <main id="appMain" style="display: none;">
+    <aside id="sidebar">
+      <input type="file" id="fileInput" accept=".m3u,.m3u8" />
+      <input type="text" id="searchInput" placeholder="🔍 لێگەریانا کەنالا" />
+
+      <div id="viewButtons">
+        <button id="channelsBtn" class="active">کەنال</button>
+        <button id="favoritesBtn">کەنالێت دەست نیشانکری⭐</button>
+      </div>
+
+      <ul id="channelList"></ul>
+      <ul id="favoriteList" style="display:none;"></ul>
+
+      <button id="clearChannelsBtn" style="margin-top: 1rem;">ژێبرنا هەمی کەنالا</button>
+      <button id="logoutBtn" style="margin-top: 0.5rem;">دەرکەفتن</button>
+    </aside>
+
+    <section id="playerSection">
+      <div id="nowPlaying">دەستنیشانکرنا کەنالا</div>
+      <video id="videoPlayer" controls autoplay></video>
+    </section>
+  </main>
+
+  <footer id="statusLegend">
+    <div><span class=""></span>کەنالێن دەست نیشان کری⭐️</div>
+    <div><span class=""></span>ژێبرنا هەمی کەنالا 🟠</div> 
+    <div><span class=""></span> گەڕان بۆ کەنال 🔍</div>
+  </footer>
+
+  <!-- HLS.js for cross-browser HLS support -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="app.js"></script>
+</body>
+</html>
